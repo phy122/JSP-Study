@@ -49,7 +49,7 @@ public class FileUploadServlet extends HttpServlet {
         }
 
         // 제목 가져오기
-        response.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
         String title = request.getParameter("title");
         System.out.println("title : " + title);
 
