@@ -45,7 +45,7 @@ public class FileUploadServlet extends HttpServlet {
         // 업로드 폴더가 없으면 폴더 생성
         File uploadDir = new File(uploadPath);
         if (!uploadDir.exists()) {
-            uploadDir.mkdirs(); // 상위 디렉토리까지 모두 생성
+            uploadDir.mkdir(); // 상위 디렉토리까지 모두 생성
         }
 
         // 제목 가져오기
