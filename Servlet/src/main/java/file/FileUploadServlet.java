@@ -17,7 +17,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 @WebServlet("/upload")
-@MultipartConfig // 파일 업로드를 처리하기 위한 어노테이션 설정
+//파일 업로드를 처리하기 위한 어노테이션 설정
+@MultipartConfig(
+		fileSizeThreshold = 1 * 1024 * 1024,// 파일 초과 시 임시 메모리
+		maxFileSize = 10 * 1024 * 1024,		// 파일당 최대 크기
+		maxRequestSize = 50 * 1024 * 1024	// 요청당 최대 크기 (5개의 * 10MB)
+)
 public class FileUploadServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -34,6 +39,8 @@ public class FileUploadServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
 
+        request.setCharacterEncoding("UTF-8");
+        
         // 서버 내의 실제 경로 가져오기
         String applicationPath = request.getServletContext().getRealPath("");
         System.out.println("applicationPath : " + applicationPath);
@@ -49,7 +56,6 @@ public class FileUploadServlet extends HttpServlet {
         }
 
         // 제목 가져오기
-        request.setCharacterEncoding("UTF-8");
         String title = request.getParameter("title");
         System.out.println("title : " + title);
 
@@ -58,7 +64,7 @@ public class FileUploadServlet extends HttpServlet {
         String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
 
         // 고유한 파일 이름 생성 (UUID 사용)
-        String filePath = uploadPath + File.separator + UUID.randomUUID() + "__" + fileName;
+        String filePath = uploadPath + File.separator + title;
 
         // 파일 저장
         try (InputStream is = filePart.getInputStream()) {

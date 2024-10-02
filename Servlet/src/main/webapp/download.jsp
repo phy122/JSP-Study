@@ -12,7 +12,7 @@
 	<label for = "fileName">파일명 : </label>
 	<input type="text" name="fileName" id="fileName" />
 		<br>
-		<input type="submit" value ="파일 업로드" />
+		<input type="submit" value ="다운로드" />
 	</form>
 </body>
 </html>
