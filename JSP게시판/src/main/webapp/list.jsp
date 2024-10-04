@@ -1,3 +1,7 @@
+<%@page import="java.sql.SQLException"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.beans.Statement"%>
+<%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -118,6 +122,7 @@
             </div>
         </div>
         
+  
         <!-- 게시글 목록 -->
           <table class="board-list">
               <thead>
@@ -130,6 +135,15 @@
             </thead>
             <tbody id="board-list">
                 <!-- (tr>(td{$}+td{게시글 제목 $}+td{작성자$}+td{2024-09-%%}))*10 -->
+                <c:forEach items="${boardList}" var="board">
+            <tr>
+                <td>${board.no}</td>
+                <td>
+                    <a href="read.jsp?no=${board.no}">${board.title}</a>
+                </td>
+                <td>${board.writer}</td>
+                <td>${board.regDate}</td> </tr>
+        </c:forEach>
             </tbody>
           </table>
           <!-- 페이지네이션 -->

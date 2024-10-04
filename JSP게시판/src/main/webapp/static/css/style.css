@@ -499,7 +499,7 @@ footer .copy{
 }
 .product-list .product-card{
     max-width: 260px;
-    border: 1px solid black;
+/*     border: 1px solid gray; */
 }
 .product-list .product-card .img-box{}
 .product-list .product-card .img-box img{
@@ -512,20 +512,20 @@ footer .copy{
     padding: 5px 0;
 }
 .product-list .product-card .content-box .price .n-price{
-    text-decoration: line-through;
-    color: #aaa;
+	font-size:15pt;
+    color: black;
 }
-.product-list .product-card .content-box .price .d-price{
-    color: #fc4668;
-}
-.product-list .product-card .content-box .price .discount{
-    display: inline-block;
-    background-color: #fc4668;
-    color: white;
-    padding: 2px 4px;
-    border-radius: 5px;
-    font-size: 12px;
-}
+/* .product-list .product-card .content-box .price .d-price{ */
+/*     color: #fc4668; */
+/* } */
+/* .product-list .product-card .content-box .price .discount{ */
+/*     display: inline-block; */
+/*     background-color: #fc4668; */
+/*     color: white; */
+/*     padding: 2px 4px; */
+/*     border-radius: 5px; */
+/*     font-size: 12px; */
+/* } */
 .product-list .product-card .content-box .title h3{
     width: 100%;
      /* 말 줄임(...) */
@@ -533,6 +533,10 @@ footer .copy{
     /* 텍스트 줄바꿈X */
     white-space: nowrap;
     overflow: hidden;
+}
+.product-list .product-card .content-box .title p{
+	font-size:15px;
+	color: gray;
 }
 .product-list .product-card .option-box{
     padding: 10px 0;
