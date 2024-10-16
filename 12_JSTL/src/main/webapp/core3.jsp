@@ -17,6 +17,9 @@
 		boardList.add(new Board(1, "제목1", "작성자1", "내용1"));
 		boardList.add(new Board(2, "제목2", "작성자2", "내용2"));
 		boardList.add(new Board(3, "제목3", "작성자3", "내용3"));
+		
+// 		BoardService boardService = new BoardServiceImpl();
+// 		List<Board> boardList = boardService.list();
 	%>
 	
 	<h1>게시글 목록</h1>
