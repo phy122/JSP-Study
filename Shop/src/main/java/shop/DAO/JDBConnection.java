@@ -29,7 +29,7 @@ public class JDBConnection {
 			//		* 내 PC의 IP주소 : localhost : 127.0.0.1
 			//		* 3306 : MySQL 데이터베이스의 기본 포트
 			//		* ~/aloha	: 스키마
-			String url = "jdbc:mysql://127.0.0.1:3306/phy?serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true&useSSL=false";
+			String url = "jdbc:mysql://127.0.0.1:3306/shop?serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true&useSSL=false";
 			String id = "root";
 			String pw = "1234";
 			

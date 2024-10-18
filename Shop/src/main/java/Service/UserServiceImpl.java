@@ -20,7 +20,41 @@ public class UserServiceImpl implements UserService{
 		else		   System.out.println("회원 가입 실패!");
 		
 		// 회원 기본 권한 등록...
-		return 0;
+		return result;
+	}
+
+	@Override
+	public Users login(Users user) {
+		String username = user.getUsername();
+		Users selectedUser = userDAO.select(username);
+		
+		// 회원 가입이 안 된 아이디
+		if(selectedUser == null)
+		return null;
+		
+		// 비밀번호 일치 여부 확인
+		String loginPassword = user.getPassword();
+		String password = selectedUser.getPassword();
+		// * Bcrypt.checkpw(로그인 비밀번호, 암호화된 비밀번호);
+		boolean check = PasswordUtils.check(loginPassword, password);
+		
+		// 비밀번호 불일치
+		if(!check)
+			return null;
+		// 로그인 성공
+		return selectedUser;
+	}
+
+	@Override
+	public Users select(int no) {
+		Users user = userDAO.select(no);
+		return user;
+	}
+
+	@Override
+	public Users select(String username) {
+		Users user = userDAO.select(username);
+		return user;
 	}
 
 }
